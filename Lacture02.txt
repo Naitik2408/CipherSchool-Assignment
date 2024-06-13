@@ -1,0 +1,44 @@
+git config
+Usage: git config --global user.name "[name]"
+Usage: git config --global user.email "[email address]"
+Description: This command sets the author name and email address to be used with your commits. These settings apply globally across all repositories on your system. If you want to set these for a specific repository, omit the --global flag.
+
+
+git init
+Usage: git init [repository name]
+Description: This command creates a new Git repository. Running git init initializes a new, empty repository in the directory you specify. If no directory is specified, it initializes a repository in the current directory.
+
+
+git add
+Usage: git add [file]
+Description: This command adds a file to the staging area, which is where changes are prepared before committing. You can also use git add . to stage all changes in the current directory and its subdirectories.
+
+
+git commit
+Usage: git commit -m "[commit message]"
+Description: This command records the changes made to the files in the staging area with a descriptive message. This snapshot is then stored permanently in the version history. Each commit creates a new, unique ID that tracks the changes made.
+
+
+git status
+Usage: git status
+Description: This command shows the current state of the working directory and staging area. It lets you see which changes have been staged, which haven’t, and which files aren’t being tracked by Git yet.
+
+
+git log:
+Usage: git log
+Description: This command displays the commit history, showing a list of all the commits made to the repository in reverse chronological order. It's useful for reviewing the changes and understanding the project's history.
+
+
+git clone:
+Usage: git clone [repository URL]
+Description: This command is used to create a copy of an existing repository. It clones the complete history and the latest version of the repository from a remote source.
+
+
+git push:
+Usage: git push [remote] [branch]
+Description: This command uploads your local commits to a remote repository. It’s typically used to share your changes with others.
+
+
+git pull:
+Usage: git pull [remote] [branch]
+Description: This command fetches and merges changes from a remote repository to your local repository. It’s a combination of git fetch and git merge.
