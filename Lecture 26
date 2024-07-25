@@ -1,0 +1,59 @@
+Sliding Window ->
+code->
+brute force->
+
+public class SlidingWindowBruteForce {
+    public static int maxSumSubarrayBruteForce(int[] arr, int k) {
+        int maxSum = Integer.MIN_VALUE;
+        
+        for (int i = 0; i <= arr.length - k; i++) {
+            int currentSum = 0;
+            for (int j = 0; j < k; j++) {
+                currentSum += arr[i + j];
+            }
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        
+        return maxSum;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int k = 3;
+        System.out.println("Maximum sum of subarray of size " + k + " is: " + maxSumSubarrayBruteForce(arr, k));
+    }
+}
+output->
+Brute Force: Maximum sum of subarray of size 3 is: 27
+
+optimal solution->
+
+public class SlidingWindowOptimal {
+    public static int maxSumSubarrayOptimal(int[] arr, int k) {
+        
+        
+        // Compute the sum of the first window
+        int maxSum = 0;
+        for (int i = 0; i < k; i++) {
+            maxSum += arr[i];
+        }
+        
+        int windowSum = maxSum;
+        for (int i = k; i < arr.length; i++) {
+            windowSum += arr[i] - arr[i - k];
+            maxSum = Math.max(maxSum, windowSum);
+        }
+        
+        return maxSum;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int k = 3;
+        System.out.println("Maximum sum of subarray of size " + k + " is: " + maxSumSubarrayOptimal(arr, k));
+    }
+}
+
+output->
+
+Optimal: Maximum sum of subarray of size 3 is: 27

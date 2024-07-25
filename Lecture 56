@@ -1,0 +1,116 @@
+Deletion  in heap
+code ->
+
+public class MaxHeap {
+    final int capacity = 10;
+    int[] heap = new int[capacity];
+    int size = 0;
+
+    // Function to get the index of the parent of a node
+    private int getParentIndex(int index) {
+        return (index - 1) / 2;
+    }
+
+    // Function to get the index of the left child of a node
+    private int getLeftChildIndex(int index) {
+        return 2 * index + 1;
+    }
+
+    // Function to get the index of the right child of a node
+    private int getRightChildIndex(int index) {
+        return 2 * index + 2;
+    }
+
+    // Function to check if a node has children
+    private boolean hasChildren(int index) {
+        return getLeftChildIndex(index) < size;
+    }
+
+    // Function to insert a new element into the heap
+    public void insert(int value) {
+        if (size == capacity) {
+            System.out.println("Heap is full. Cannot insert more elements.");
+            return;
+        }
+
+        // Insert the new element at the end of the heap
+        heap[size] = value;
+        size++;
+
+        // Heapify up to maintain the max-heap property
+        heapifyUp(size - 1);
+    }
+
+    // Function to delete the root element (max element) from the heap
+    public int deleteMax() {
+        if (size == 0) {
+            throw new IllegalStateException("Heap is empty. Cannot delete.");
+        }
+
+        int deletedValue = heap[0];
+
+        // Move the last element to the root
+        heap[0] = heap[size - 1];
+        size--;
+
+        // Heapify down to maintain the max-heap property
+        heapifyDown(0);
+
+        return deletedValue;
+    }
+
+    // Helper function to heapify down (downward heapification)
+    private void heapifyDown(int index) {
+        int leftChildIndex = getLeftChildIndex(index);
+        int rightChildIndex = getRightChildIndex(index);
+        int largestIndex = index;
+
+        // Find the largest among index, left child, and right child
+        if (leftChildIndex < size && heap[leftChildIndex] > heap[largestIndex]) {
+            largestIndex = leftChildIndex;
+        }
+        if (rightChildIndex < size && heap[rightChildIndex] > heap[largestIndex]) {
+            largestIndex = rightChildIndex;
+        }
+
+        // If the largest is not the current index, swap and continue heapifying down
+        if (largestIndex != index) {
+            swap(index, largestIndex);
+            heapifyDown(largestIndex);
+        }
+    }
+
+    // Function to swap two elements in the heap
+    private void swap(int index1, int index2) {
+        int temp = heap[index1];
+        heap[index1] = heap[index2];
+        heap[index2] = temp;
+    }
+
+    // Function to print the elements of the heap
+    public void printHeap() {
+        System.out.print("Heap: ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(heap[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        MaxHeap maxHeap = new MaxHeap();
+
+        maxHeap.insert(3);
+        maxHeap.insert(7);
+        maxHeap.insert(1);
+        maxHeap.insert(9);
+        maxHeap.insert(5);
+
+        maxHeap.printHeap();
+
+        // Deleting the max element (root)
+        int deletedValue = maxHeap.deleteMax();
+        System.out.println("Deleted max element: " + deletedValue);
+
+        maxHeap.printHeap();
+    }
+}

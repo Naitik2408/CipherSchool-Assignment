@@ -1,0 +1,207 @@
+binary search tree
+code->
+
+class Node {
+    int key;
+    Node left, right;
+
+    public Node(int item) {
+        key = item;
+        left = right = null;
+    }
+}
+
+public class BinarySearchTree {
+    Node root;
+
+    public BinarySearchTree() {
+        root = null;
+    }
+
+    // Method to search for a key in the BST
+    boolean search(int key) {
+        return searchRec(root, key);
+    }
+
+    // A recursive function to search for a key in BST
+    boolean searchRec(Node root, int key) {
+        // Base Cases: root is null or key is present at root
+        if (root == null || root.key == key) {
+            return root != null;
+        }
+
+        // Key is greater than root's key
+        if (root.key < key) {
+            return searchRec(root.right, key);
+        }
+
+        // Key is smaller than root's key
+        return searchRec(root.left, key);
+    }
+
+    public static void main(String[] args) {
+        // Manually creating a Binary Search Tree
+        BinarySearchTree tree = new BinarySearchTree();
+        tree.root = new Node(1);
+        tree.root.left = new Node(3);
+        tree.root.right = new Node(2);
+        tree.root.right.left = new Node(5);
+        tree.root.right.right = new Node(4);
+
+        // Performing search operations
+        int keyToSearch1 = 2;
+        if (tree.search(keyToSearch1)) {
+            System.out.println(keyToSearch1 + " found in the BST.");
+        } else {
+            System.out.println(keyToSearch1 + " not found in the BST.");
+        }
+
+        int keyToSearch2 = 6;
+        if (tree.search(keyToSearch2)) {
+            System.out.println(keyToSearch2 + " found in the BST.");
+        } else {
+            System.out.println(keyToSearch2 + " not found in the BST.");
+        }
+    }
+}
+output->
+2 found in the BST.
+6 not found in the BST.
+
+
+Iterative approach to solve  searching in binary tree->
+code ->
+
+class Node {
+    int key;
+    Node left, right;
+
+    public Node(int item) {
+        key = item;
+        left = right = null;
+    }
+}
+
+public class BinarySearchTree {
+    Node root;
+
+    public BinarySearchTree() {
+        root = null;
+    }
+
+    boolean search(int key) {
+        Node current = root;
+        
+        while (current != null) {
+            if (key == current.key) {
+                return true; // Found the key
+            } else if (key < current.key) {
+                current = current.left; // Search in the left subtree
+            } else {
+                current = current.right; // Search in the right subtree
+            }
+        }
+        
+        return false; // Key not found
+    }
+
+    public static void main(String[] args) {
+        // Manually creating a Binary Search Tree
+        BinarySearchTree tree = new BinarySearchTree();
+        tree.root = new Node(50);
+        tree.root.left = new Node(30);
+        tree.root.right = new Node(70);
+        tree.root.left.left = new Node(20);
+        tree.root.left.right = new Node(40);
+        tree.root.right.left = new Node(60);
+        tree.root.right.right = new Node(80);
+=
+        int keyToSearch1 = 40;
+        if (tree.search(keyToSearch1)) {
+            System.out.println(keyToSearch1 + " found in the BST.");
+        } else {
+            System.out.println(keyToSearch1 + " not found in the BST.");
+        }
+
+        int keyToSearch2 = 90;
+        if (tree.search(keyToSearch2)) {
+            System.out.println(keyToSearch2 + " found in the BST.");
+        } else {
+            System.out.println(keyToSearch2 + " not found in the BST.");
+        }
+    }
+}
+output->
+40 found in the BST.
+90 not found in the BST.
+
+Insertion in binary tree ->
+here we insert randmoly first we have to search the element ->
+code ->
+
+class Node {
+    int key;
+    Node left, right;
+
+    public Node(int item) {
+        key = item;
+        left = right = null;
+    }
+}
+
+public class BinarySearchTree {
+    Node root;
+
+    public BinarySearchTree() {
+        root = null;
+    }
+
+    
+    void insert(int key) {
+        if (root == null) {
+            root = new Node(key);
+            return;
+        }
+
+        Node newNode = new Node(key);
+        Node current = root;
+        Node parent;
+
+        while (true) {
+            parent = current;
+            if (key < current.key) {
+                current = current.left;
+                if (current == null) {
+                    parent.left = newNode;
+                    return;
+                }
+            } else {
+                current = current.right;
+                if (current == null) {
+                    parent.right = newNode;
+                    return;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        BinarySearchTree tree = new BinarySearchTree();
+
+        
+        tree.root = new Node(50);               
+        tree.root.left = new Node(30);           
+        tree.root.right = new Node(70);         
+        tree.root.left.left = new Node(20);       
+        tree.root.left.right = new Node(40);     
+        tree.root.right.left = new Node(60);     
+        tree.root.right.right = new Node(80);    
+                                
+                                                
+
+        
+        System.out.println("Root key: " + tree.root.key);
+        System.out.println("Left child of root: " + tree.root.left.key);
+        System.out.println("Right child of root: " + tree.root.right.key);
+    }
+}

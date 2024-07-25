@@ -1,0 +1,70 @@
+
+// class 
+
+practice code->
+
+public class Student { // Start of the Student class
+    int roll; // Class-level field for roll number
+    String name; // Class-level field for name
+
+    public static void main(String[] args) { // Main method with the correct signature
+        // Creating three Student objects
+        Student s1 = new Student();
+        Student s2 = new Student();
+        Student s3 = new Student();
+
+        // Assigning values to the fields of each Student object
+        s1.name = "abhinav";
+        s1.roll = 1;
+
+        s2.name = "ankit";
+        s2.roll = 2;
+
+        s3.name = "aman";
+        s3.roll = 3;
+
+        // Printing the name and roll number of each Student object
+        System.out.println(s1.name);
+        System.out.println(s1.roll);
+
+        System.out.println(s2.name);
+        System.out.println(s2.roll);
+
+        System.out.println(s3.name);
+        System.out.println(s3.roll);
+    }
+}
+
+OUTPUT->
+
+abhinav
+1
+ankit
+2
+aman
+3
+
+// inheritance
+
+practice code->
+
+class Shape{
+    int r;
+    double pi=3.14;
+
+}
+class Circle extends  Shape{
+    void area(int r){
+        System.out.println(pi*r*r);
+    }
+}
+
+public class inhertiance {
+    public static void main(String[] args) {
+        Circle c = new Circle();
+        c.area(5);
+    }
+}
+
+output->
+78.5

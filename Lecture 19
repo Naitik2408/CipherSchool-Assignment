@@ -1,0 +1,57 @@
+time complexity
+check prime number or not->
+code->
+public class Main {
+    public static void main(String[] args) {
+        int n = 10000;
+        
+        long startTimeRam = System.currentTimeMillis();
+        boolean isPrimeRam = ram(n);
+        long endTimeRam = System.currentTimeMillis();
+        long executionTimeRam = endTimeRam - startTimeRam;
+        
+        long startTimeShyam = System.currentTimeMillis();
+        boolean isPrimeShyam = shyam(n);
+        long endTimeShyam = System.currentTimeMillis();
+        long executionTimeShyam = endTimeShyam - startTimeShyam;
+        
+        System.out.println(n + " is prime (Ram's method): " + isPrimeRam);
+        System.out.println("Time taken (Ram's method): " + executionTimeRam + " milliseconds");
+        
+        System.out.println(n + " is prime (Shyam's method): " + isPrimeShyam);
+        System.out.println("Time taken (Shyam's method): " + executionTimeShyam + " milliseconds");
+    }
+    
+    public static boolean ram(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static boolean shyam(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        if (number <= 3) {
+            return true;
+        }
+        int sqrt = (int) Math.sqrt(number);
+        for (int i = 2; i <= sqrt; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+output->
+10000 is prime (Ram's method): false
+Time taken (Ram's method): 11 milliseconds
+10000 is prime (Shyam's method): false
+Time taken (Shyam's method): 0 milliseconds

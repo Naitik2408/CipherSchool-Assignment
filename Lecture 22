@@ -1,0 +1,43 @@
+
+String ->
+practice code '
+public class StringComparison {
+    public static void main(String[] args) {
+        // Using string literals
+        String str1 = "hello";
+        String str2 = "hello";
+
+        // Using string constructors
+        String str3 = new String("hello");
+        String str4 = new String("hello");
+
+        // Comparing using ==
+        System.out.println("Comparing using == with string literals:");
+        System.out.println("str1 == str2: " + (str1 == str2)); // true
+        System.out.println("str1 == str3: " + (str1 == str3)); // false
+        System.out.println("str3 == str4: " + (str3 == str4)); // false
+    }
+}
+output->
+Comparing using == with string literals:
+str1 == str2: true
+str1 == str3: false
+str3 == str4: false
+
+checking if the value of string are equal ->
+practice code->
+
+public class StringComparison {
+    public static void main(String[] args) {
+        String str1 = "hello";
+        String str2 = "hello";
+
+        // Using equals() to check if strings are equal by value
+        boolean areEqual = str1.equals(str2);
+
+        // Print the result
+        System.out.println("Are strings equal by value? " + areEqual);
+    }
+}
+output->
+Are strings equal by value? true

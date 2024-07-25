@@ -1,0 +1,59 @@
+// interface provide absoulte abstraction
+practice code-> implementaion of interface
+interface Shape {
+    double pi = 3.14; // public, static, and final by default
+    double getArea(double r); // public and abstract by default
+}
+
+class Circle implements Shape {
+    @Override
+    public double getArea(double r) {
+        return pi * r * r;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Circle c = new Circle();
+        System.out.println(c.getArea(5)); // Corrected method name and output
+    }
+}
+output->
+78.5
+
+//MultipleInheritance in java 
+practice code->
+interface A{
+    int x =10;
+    void fun();
+}
+interface B{
+    int x =20;
+    void fun2();
+
+}
+class C implements A,B{
+  public   void fun(){
+        System.out.println("hi, i am implementing interface A");
+      System.out.println(A.x);
+    }
+
+public void  fun2(){
+      System.out.println("hi, i am implementing interface B");
+    System.out.println(B.x);
+    }
+
+}
+public class Main{
+    public static void main(String[] args) {
+        C excute = new C();
+        excute.fun();
+        excute.fun2();
+    }
+}
+
+output->
+hi, i am implementing interface A
+10
+hi, i am implementing interface B
+20

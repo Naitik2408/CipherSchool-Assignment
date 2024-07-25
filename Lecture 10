@@ -1,0 +1,50 @@
+
+method overiding 
+
+practice code->
+class Shape{
+    void fun(){
+        System.out.println("it  is Shape");
+    }
+}
+class  Circle extends Shape{
+    void fun(){
+        System.out.println("it is a circle which overide the shape ");
+    }
+}
+
+
+public class Main{
+    public static void main(String[] args) {
+        Circle c = new Circle();
+        c.fun();
+    }
+}
+
+output->
+it is a circle which overide the shape 
+
+// uses of final keyword to stop method overiding
+
+practice code 3 ->
+class Shape{
+  final  void fun(){ 
+        System.out.println("it  is Shape");
+    }
+}
+class  Circle extends Shape{
+    void fun(){// this will give an error because we have use the final keyword in the method fun()
+        System.out.println("it is a circle which overide the shape ");
+    }
+}
+
+
+public class Main{
+    public static void main(String[] args) {
+        Circle c = new Circle();
+        c.fun();
+    }
+}
+
+
+// simlarly if we make class as a final we cannot inherent another class from it if we do it will give an error

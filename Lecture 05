@@ -1,0 +1,38 @@
+
+
+practice code ->
+public class Main {
+    public static void main(String[] args) {
+//        float f =5.5 show error because it is taking it as double
+       float f = (float) 5.5;
+       float a = 6.7f;
+        System.out.println("f is " + f );
+        System.out.println("a is " + a);
+        double d = 7.99999;
+        System.out.println("d is " + d);
+        char c ='a';
+        System.out.println("c is "+ c);
+// operators
+        //      here plus is an opreator and the value are opreand
+        int x = 7+ 8;
+        System.out.println("the sum of x and y is" + x);
+//increment and decrement
+        int m =5;
+        int n = m++;
+        System.out.println("m is "+ m+ " n is "+ n);
+        int p=8;
+        int q= ++p;
+        System.out.println("p is " + p + " q is" + q);
+
+
+    }
+}
+
+output ->
+f is 5.5
+a is 6.7
+d is 7.99999
+c is a
+the sum of x and y is15
+m is 6 n is 5
+p is 9 q is 9

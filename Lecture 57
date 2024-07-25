@@ -1,0 +1,40 @@
+
+GRAPSH----
+
+Graphs in Data Structures and Algorithms (DSA) are versatile structures used to represent networks or relationships between entities. Here’s a comprehensive overview covering various aspects of graphs:
+Graph: A graph 
+𝐺
+G is a pair 
+(v,e)
+
+(V,E) where 
+𝑉
+V is a set of vertices (nodes) and 
+𝐸
+E is a set of edges that connect these vertx
+
+Vertex (Node): Represents an entity or object.
+
+Edge: Represents a relationship or connection between two vertices.
+
+
+TYPES OF GRAPh->
+
+Weighted vs. Unweighted Graphs:
+
+Unweighted Graph: Edges do not have weights or costs associated with them.
+Weighted Graph: Edges have weights or costs that represent some numerical value (e.g., distance, cost).
+
+Cyclic vs. Acyclic Graphs:
+
+Cyclic Graph: Contains at least one cycle (a path that starts and ends at the same vertex).
+Acyclic Graph: Does not contain any cycles.
+
+Directed  graph 
+Undirected graph
+
+Graph Operations and Algorithms
+Traversal Algorithms:
+
+Breadth-First Search (BFS): Explores all vertices at the present depth level before moving on to vertices at the next depth level.
+Depth-First Search (DFS): Explores as far along each branch as possible before backtracking.

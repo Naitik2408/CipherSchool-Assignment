@@ -1,0 +1,18 @@
+
+Features of java :-
+1. simple
+2.Object oriented
+3.Secure
+4.Robust
+5.High Perfromance
+6.Multi threaded
+7.Distrubted
+8.Architecture Neutral
+9.Protable
+10.Platform Independent 
+
+java compliler  creates .class file which conatins byte code.
+JVM(Java virtual machine )executes byte code into machine code.
+in java thread can be created in two ways:
+1.by extending thread class 
+2 .by  implemnenting Runnable interface

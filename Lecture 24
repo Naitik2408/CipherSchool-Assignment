@@ -1,0 +1,150 @@
+Substring ->
+code->
+public class SubstringExample {
+    public static void main(String[] args) {
+        String originalString = "Hello, World!";
+        
+        // Extract substring from index 7 to the end
+        String substring1 = originalString.substring(7);
+        System.out.println("Substring 1: " + substring1); // Output: "World!"
+        
+        // Extract substring from index 0 to 5 (excluding index 5)
+        String substring2 = originalString.substring(0, 5);
+        System.out.println("Substring 2: " + substring2); // Output: "Hello"
+        
+        // Extract substring from index 7 to 12 (excluding index 12)
+        String substring3 = originalString.substring(7, 12);
+        System.out.println("Substring 3: " + substring3); // Output: "World"
+    }
+}
+CharAT  ->
+code->
+public class CharAtExample {
+    public static void main(String[] args) {
+        String text = "CIPHERSCHOOLS";
+        
+       
+        char charAtIndex3 = text.charAt(3);
+        char charAtIndex8 = text.charAt(8);
+        
+        System.out.println("Character at index 3: " + charAtIndex3); // Output: "H"
+        System.out.println("Character at index 8: " + charAtIndex8); // Output: "H"
+        
+        System.out.println("Iterating over each character:");
+        for (int i = 0; i < text.length(); i++) {
+            System.out.println("Index " + i + ": " + text.charAt(i));
+        }
+    }
+}
+
+char array from string
+code->
+
+public class StringToCharArrayExample {
+    public static void main(String[] args) {
+        
+        String text = "CIPHERSCHOOLS";
+        
+        // Convert the string to a character array
+        char[] charArray = text.toCharArray();
+        
+   
+        System.out.println("Character array from string:");
+        for (int i = 0; i < charArray.length; i++) {
+            System.out.print(charArray[i] + " ");
+        }
+    }
+}
+output->
+C I P H E R S C H O O L S 
+
+isEmpty function->'
+
+public class CheckStringIsEmpty {
+    public static void main(String[] args) {
+        String text1 = "";
+        String text2 = "CIPHERSCHOOLS";
+
+        System.out.println("text1 is empty: " + text1.isEmpty());
+        System.out.println("text2 is empty: " + text2.isEmpty());
+    }
+}
+output->
+text1 is empty: true
+text2 is empty: false
+
+compareTOfunction->
+
+code->
+
+public class CompareStrings {
+    public static void main(String[] args) {
+        String text1 = "CIPHERSCHOOLS";
+        String text2 = "CIPHERSCHOOLS";
+        String text3 = "cipherSchools";
+
+        // Compare text1 and text2
+        int result1 = text1.compareTo(text2);
+        System.out.println("Comparing text1 and text2: " + result1);
+
+        // Compare text1 and text3
+        int result2 = text1.compareTo(text3);
+        System.out.println("Comparing text1 and text3: " + result2);
+
+        // Compare text3 and text1
+        int result3 = text3.compareTo(text1);
+        System.out.println("Comparing text3 and text1: " + result3);
+    }
+}
+output->
+Comparing text1 and text2: 0
+Comparing text1 and text3: -32
+Comparing text3 and text1: 32
+
+trim function->
+
+public class TrimExample {
+    public static void main(String[] args) {
+        String text1 = "   CIPHERSCHOOLS   ";
+        String text2 = "  Hello World!  ";
+        
+        // Use trim() to remove leading and trailing spaces
+        String trimmedText1 = text1.trim();
+        String trimmedText2 = text2.trim();
+        
+        // Print the original and trimmed strings
+        System.out.println("Original text1: '" + text1 + "'");
+        System.out.println("Trimmed text1: '" + trimmedText1 + "'");
+        System.out.println("Original text2: '" + text2 + "'");
+        System.out.println("Trimmed text2: '" + trimmedText2 + "'");
+    }
+}
+Original text1: '   CIPHERSCHOOLS   '
+Trimmed text1: 'CIPHERSCHOOLS'
+Original text2: '  Hello World!  '
+Trimmed text2: 'Hello World!'
+
+replace function->
+
+code->
+public class ReplaceExample {
+    public static void main(String[] args) {
+        String text = "Hello, World!";
+        
+        // Replace a character
+        String replaced1 = text.replace('o', '0');
+        System.out.println("After replacing 'o' with '0': " + replaced1);
+        
+        // Replace a substring
+        String replaced2 = text.replace("World", "Java");
+        System.out.println("After replacing 'World' with 'Java': " + replaced2);
+        
+        // Original string remains unchanged
+        System.out.println("Original string: " + text);
+    }
+}
+
+output->
+After replacing 'o' with '0': Hell0, W0rld!
+After replacing 'World' with 'Java': Hello, Java!
+Original string: Hello, World!

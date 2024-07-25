@@ -1,0 +1,79 @@
+Reverse the string 
+Brute force -
+code->
+
+public class ReverseString {
+    public static void main(String[] args) {
+        String original = "Hello World!";
+        String reversed = reverseUsingLoop(original);
+        System.out.println("Original string: " + original);
+        System.out.println("Reversed string: " + reversed);
+    }
+
+    public static String reverseUsingLoop(String str) {
+        String reversed = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed += str.charAt(i);
+        }
+        return reversed;
+    }
+}
+
+output->
+Original string: Hello World!
+Reversed string: !dlroW olleH
+
+
+using two pointer ->
+code->
+
+public class ReverseString {
+    public static void main(String[] args) {
+        String original = "Hello World!";
+        String reversed = reverseUsingTwoPointers(original);
+        System.out.println("Original string: " + original);
+        System.out.println("Reversed string: " + reversed);
+    }
+
+    public static String reverseUsingTwoPointers(String str) {
+        char[] charArray = str.toCharArray();
+        int left = 0, right = charArray.length - 1;
+        while (left < right) {
+            // Swap the characters
+            char temp = charArray[left];
+            charArray[left] = charArray[right];
+            charArray[right] = temp;
+            left++;
+            right--;
+        }
+        return new String(charArray);
+    }
+}
+output->
+
+Original string: Hello World!
+Reversed string: !dlroW olleH
+
+
+using recursion-> optimal
+
+code->
+
+public class ReverseString {
+    public static void main(String[] args) {
+        String original = "Hello World!";
+        String reversed = reverseUsingRecursion(original);
+        System.out.println("Original string: " + original);
+        System.out.println("Reversed string: " + reversed);
+    }
+
+    public static String reverseUsingRecursion(String str) {
+        if (str.isEmpty()) {
+            return str;
+        }
+        return reverseUsingRecursion(str.substring(1)) + str.charAt(0);
+    }
+}
+output->
+Original string: Hello World!
+Reversed string: !dlroW olleH

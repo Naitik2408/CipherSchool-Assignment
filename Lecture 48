@@ -1,0 +1,139 @@
+
+inorder ,postorder , inorder ->  time complexity O(n)
+
+code ->
+
+
+class Node {
+    int data;
+    Node left;
+    Node right;
+    Node(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+public class BinaryTree {
+    Node root;
+
+    BinaryTree(int data) {
+        this.root = new Node(data);
+    }
+
+    static void preOrder(Node root) {
+        if (root == null) {
+            return;
+        }
+        System.out.print(root.data + " ");
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+
+    static void inOrder(Node root) {
+        if (root == null) {
+            return;
+        }
+        inOrder(root.left);
+        System.out.print(root.data + " ");
+        inOrder(root.right);
+    }
+
+    static void postOrder(Node root) {
+        if (root == null) {
+            return;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.data + " ");
+    }
+
+    public static void main(String args[]) {
+        BinaryTree bt = new BinaryTree(2);
+        bt.root.left = new Node(3);
+        bt.root.right = new Node(5);
+        bt.root.left.right = new Node(9);
+        bt.root.right.left = new Node(7);
+
+        System.out.println("Pre-order traversal:");
+        preOrder(bt.root);
+        System.out.println();
+
+        System.out.println("In-order traversal:");
+        inOrder(bt.root);
+        System.out.println();
+
+        System.out.println("Post-order traversal:");
+        postOrder(bt.root);
+    }
+}
+
+output->
+
+Pre-order traversal:
+2 3 9 5 7 
+
+In-order traversal:
+3 9 2 5 7 
+
+Post-order traversal:
+9 3 7 5 2 
+
+check if two trees are identical 
+code->
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int item) {
+        data = item;
+        left = right = null;
+    }
+}
+
+public class BinaryTree {
+
+    Node root;
+
+    // Method to check if two trees are identical
+    boolean areIdentical(Node root1, Node root2) {
+        // If both trees are empty, they are identical
+        if (root1 == null && root2 == null) {
+            return true;
+        }
+
+        // If one of the trees is empty, they are not identical
+        if (root1 == null || root2 == null) {
+            return false;
+        }
+
+        // Check if the data of both nodes is the same and
+        // recursively check for the left and right subtrees
+        return (root1.data == root2.data) && areIdentical(root1.left, root2.left) && areIdentical(root1.right, root2.right);
+    }
+
+    public static void main(String[] args) {
+        BinaryTree tree1 = new BinaryTree();
+        tree1.root = new Node(1);
+        tree1.root.left = new Node(2);
+        tree1.root.right = new Node(3);
+        tree1.root.left.left = new Node(4);
+        tree1.root.left.right = new Node(5);
+
+        BinaryTree tree2 = new BinaryTree();
+        tree2.root = new Node(1);
+        tree2.root.left = new Node(2);
+        tree2.root.right = new Node(3);
+        tree2.root.left.left = new Node(4);
+        tree2.root.left.right = new Node(5);
+
+        if (tree1.areIdentical(tree1.root, tree2.root)) {
+            System.out.println("The trees are identical.");
+        } else {
+            System.out.println("The trees are not identical.");
+        }
+    }
+}
+output->

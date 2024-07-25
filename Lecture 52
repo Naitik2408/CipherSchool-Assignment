@@ -1,0 +1,68 @@
+ SET AND MAPS 
+
+code -> 
+implemneting sets->
+
+import java.util.*;
+
+public class SetExample {
+    public static void main(String[] args) {
+        Set<Integer> set = new HashSet<>();
+
+        set.add(1);
+        set.add(2);
+        set.add(3);
+
+        System.out.println("Size of set before adding duplicate: " + set.size());
+
+        set.add(2);
+
+        System.out.println("Size of set after adding duplicate: " + set.size());
+
+        System.out.println("Set contents after operations: " + set);
+
+        set.remove(2);
+        System.out.println("Set after removing element '2': " + set);
+
+        set.clear();
+        System.out.println("Set after clearing: " + set);
+    }
+}
+output->
+Size of set before adding duplicate: 3
+Size of set after adding duplicate: 3
+Set contents after operations: [1, 2, 3]
+Set after removing element '2': [1, 3]
+Set after clearing: []
+
+maps->
+code->
+
+import java.util.*;
+
+public class FruitExample {
+    public static void main(String[] args) {
+        Map<String, Integer> fruitStock = new HashMap<>();
+
+        fruitStock.put("Apple", 10);
+        fruitStock.put("Banana", 20);
+        fruitStock.put("Orange", 15);
+
+        System.out.println("Does fruitStock contain 'Apple'? " + fruitStock.containsKey("Apple"));
+
+        System.out.println("Quantity of 'Banana': " + fruitStock.get("Banana"));
+
+        System.out.println("All fruit quantities: " + fruitStock.values());
+
+        fruitStock.remove("Orange");
+        System.out.println("Fruit stock after removing 'Orange': " + fruitStock);
+
+        System.out.println("Types of fruits in stock: " + fruitStock.keySet());
+    }
+}
+output->
+Does fruitStock contain 'Apple'? true
+Quantity of 'Banana': 20
+All fruit quantities: [10, 20, 15]
+Fruit stock after removing 'Orange': {Apple=10, Banana=20}
+Types of fruits in stock: [Apple, Banana]

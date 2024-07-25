@@ -1,0 +1,49 @@
+
+Primative data type
+A primitive data type have specify the  size and the type of value used.
+Java has eight primitive data types:
+
+byte:
+Size: 8 bits
+Range: -128 to 127
+Example: byte b = 10;
+
+int:
+Size: 32 bits
+Range: -2^31 to 2^31 - 1
+Example: int i = 100000;
+
+short:
+Size: 16 bits
+Range: -32,768 to 32,767
+Example: short s = 10000;
+
+These primitive data types are highly efficient and are stored directly in memory for fast access.
+practice code->
+
+public class Main {
+    public static void main(String[] args) {
+        int x =9;
+        int y=6;
+        System.out.println("x is " +x);
+        System.out.println("y is " +y);
+
+        byte a = 78;
+        System.out.println(a);
+        byte b = (byte) 129;
+        System.out.println(b);
+
+        short s = 78;
+        System.out.println(s);
+        double c  = 12.67;
+        System.out.println(c);
+
+    }
+}
+-> output
+x is 9
+y is 6
+78
+-127
+78
+12.67

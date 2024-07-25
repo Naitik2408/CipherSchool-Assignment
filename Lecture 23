@@ -1,0 +1,78 @@
+String->
+// craeting new string object from char array
+public class CharArrayToString {
+    public static void main(String[] args) {
+        char[] charArray = {'c', 'i', 'p', 'h', 'e', 'r'};
+        String str = new String(charArray);
+        System.out.println(str);  // Output: cipher
+    }
+}
+output->
+cipher
+craeting partial string object from char array->
+code->
+
+public class PartialStringFromArray {
+    public static void main(String[] args) {
+        char[] charArray = {'c', 'i', 'p', 'h', 'e', 'r'};
+        
+        // Create a partial string from index 1 to 3 (inclusive)
+        String partialString = new String(charArray, 1, 3);
+        System.out.println(partialString);  // Output: iph
+    }
+}
+ouput->
+iph
+
+changing the case ->
+code->
+public class ChangeCase {
+    public static void main(String[] args) {
+        String str = "Cipher";
+        
+        // Convert all characters to lowercase
+        String lowercaseStr = str.toLowerCase();
+        System.out.println("Lowercase: " + lowercaseStr);  // Output: cipher
+        
+        // Convert all characters to uppercase
+        String uppercaseStr = str.toUpperCase();
+        System.out.println("Uppercase: " + uppercaseStr);  // Output: CIPHER
+    }
+}
+output->
+Lowercase: cipher
+Uppercase: CIPHER
+
+
+split ->
+code ->
+
+import java.util.Scanner;
+
+public class SplitWithoutTrim {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt user to enter full name
+        System.out.print("Enter full name: ");
+        String fullName = scanner.nextLine();
+        
+        // Split the full name by comma
+        String[] parts = fullName.split(",", -1);  // -1 to preserve trailing empty strings
+        
+        // Output the split parts
+//for using dot we have to use(.)
+
+        System.out.println("Split parts:");
+        for (String part : parts) {
+            System.out.println(part);
+        }
+        
+        
+    }
+}
+output->
+Split parts:
+Abhinav
+ Prakash
+ 

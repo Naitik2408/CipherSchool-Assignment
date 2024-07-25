@@ -1,0 +1,40 @@
+
+Taking array as input from user
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the number of elements in the array: ");
+        int n = scanner.nextInt();
+        
+        int[] numbers = new int[n];
+        
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+        
+        System.out.println("The elements entered are:");
+        for (int i = 0; i < n; i++) {
+            System.out.println(numbers[i]);
+        }
+        
+        scanner.close();
+    }
+}
+output->
+Enter the number of elements in the array: 5
+Enter the elements of the array:
+10
+20
+30
+40
+50
+The elements entered are:
+10
+20
+30
+40
+50

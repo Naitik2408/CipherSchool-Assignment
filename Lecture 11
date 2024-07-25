@@ -1,0 +1,33 @@
+
+// abstract class 
+practice code->
+
+
+abstract class Car // we cannot instantiate an abstarct class which means we canoot create object of the absract class
+{
+int maxSpeed;
+abstarct void accelerate(); // only declared but not implemented 
+abstract void brake();
+}
+class Bmw extends Car{
+void accelerate(){
+System.out.println("BMW is accelerating");
+}
+void brake(){
+System.out.println("BMW is applying brake");
+}
+
+}
+public class AbstractClass{
+public static void main(String args[]){
+//Car c = new Car (); // cannot instantiate an abstract class
+
+Bmw c = new Bmw();
+c.accelearate();
+c.brake();
+}
+}
+
+output->
+BMW is accelerating
+BMW is applying brake

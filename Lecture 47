@@ -1,0 +1,176 @@
+
+-> total number of leaf nodes   time complexity -> O(N) 
+code ->
+ binary tree used in the example:
+        1
+       / \
+      2   3
+     / \ / \
+    4  5 6  7
+
+class Node {
+    int data;
+    Node left, right;
+
+    public Node(int item) {
+        data = item;
+        left = right = null;
+    }
+}
+
+class BinaryTree {
+    Node root;
+
+    
+    int countLeafNodes(Node node) {
+        // Base case: If the node is null, return 0
+        if (node == null) {
+            return 0;
+        }
+
+        // If the node is a leaf node, return 1
+        if (node.left == null && node.right == null) {
+            return 1;
+        }
+
+      
+        return countLeafNodes(node.left) + countLeafNodes(node.right);
+    }
+
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+        tree.root = new Node(1);
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(3);
+        tree.root.left.left = new Node(4);
+        tree.root.left.right = new Node(5);
+        tree.root.right.left = new Node(6);
+        tree.root.right.right = new Node(7);
+
+        System.out.println("The number of leaf nodes is: " + tree.countLeafNodes(tree.root));
+    }
+}
+output->
+The number of leaf nodes is: 4
+
+
+
+height of the tree    time complexity -> O(N) 
+code ->
+
+same tree usesd above ->
+
+
+class Node {
+    int data;
+    Node left, right;
+
+    public Node(int item) {
+        data = item;
+        left = right = null;
+    }
+}
+
+class BinaryTree {
+    Node root;
+
+  
+    int height(Node node) {
+        // Base case: If the node is null, return -1
+        if (node == null) {
+            return -1;
+        }
+
+        
+        int leftHeight = height(node.left);
+        int rightHeight = height(node.right);
+
+        // The height of the current node is 1 plus the maximum of the heights of the left and right subtrees
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
+
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+        tree.root = new Node(1);
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(3);
+        tree.root.left.left = new Node(4);
+        tree.root.left.right = new Node(5);
+        tree.root.right.left = new Node(6);
+        tree.root.right.right = new Node(7);
+
+        System.out.println("The height of the tree is: " + tree.height(tree.root));
+    }
+}
+output->
+
+The height of the tree is: 2
+
+
+Level order traversal ->
+code ->
+
+class Node {
+    int data;
+    Node left, right;
+
+    public Node(int item) {
+        data = item;
+        left = right = null;
+    }
+}
+
+class BinaryTree {
+    Node root;
+
+    // Method to print all levels
+    void printLevels() {
+        int h = height(root);
+        for (int i = 1; i <= h; i++) {
+            printGivenLevel(root, i);
+            System.out.println();
+        }
+    }
+
+    // Method to print all nodes at a given level
+    void printGivenLevel(Node node, int level) {
+        if (node == null) {
+            return;
+        }
+        if (level == 1) {
+            System.out.print(node.data + " ");
+        } else if (level > 1) {
+            printGivenLevel(node.left, level - 1);
+            printGivenLevel(node.right, level - 1);
+        }
+    }
+
+    // Method to calculate the height of the tree
+    int height(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        int leftHeight = height(node.left);
+        int rightHeight = height(node.right);
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
+
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+        tree.root = new Node(1);
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(3);
+        tree.root.left.left = new Node(4);
+        tree.root.left.right = new Node(5);
+        tree.root.right.left = new Node(6);
+        tree.root.right.right = new Node(7);
+
+        System.out.println("Level order traversal of binary tree is:");
+        tree.printLevels();
+    }
+}
+output->
+Level order traversal of binary tree is:
+1 
+2 3 
+4 5 6 7 

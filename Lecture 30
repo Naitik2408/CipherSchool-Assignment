@@ -1,0 +1,41 @@
+
+check if the string is rotation of each other->
+code->
+
+public class StringRotationBruteForce {
+
+    // Method to check if two strings are rotations using brute force
+    public static boolean areRotationsBruteForce(String str1, String str2) {
+        // Check if lengths are equal
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        // Generate all rotations of str1 and check if any match str2
+        int len = str1.length();
+        for (int i = 0; i < len; i++) {
+            String rotation = str1.substring(i) + str1.substring(0, i);
+            if (rotation.equals(str2)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        String str1 = "abcde";
+        String str2 = "cdeab";
+
+        System.out.println(areRotationsBruteForce(str1, str2));  // Output: true
+
+        String str3 = "hello";
+        String str4 = "lohel";
+
+        System.out.println(areRotationsBruteForce(str3, str4));  // Output: true
+
+        String str5 = "test";
+        String str6 = "tset";
+
+        System.out.println(areRotationsBruteForce(str5, str6));  // Output: false
+    }
+}

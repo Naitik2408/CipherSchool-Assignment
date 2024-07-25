@@ -1,0 +1,132 @@
+Node to be deleted is a leaf node (no children):
+Simply remove the node from the tree.
+
+Node to be deleted has one child:
+Remove the node and replace it with its child.
+
+Node to be deleted has two children:
+Find the inorder successor (smallest node in the right subtree) or inorder predecessor (largest node in the left subtree) of the node. 
+Replace the node's value with the value of the successor or predecessor, and then delete the successor or predecessor node.
+
+
+code ->
+
+class TreeNode {
+    int value;
+    TreeNode left, right;
+
+    TreeNode(int value) {
+        this.value = value;
+        left = right = null;
+    }
+}
+
+class BinarySearchTree {
+    TreeNode root;
+
+    BinarySearchTree() {
+        root = null;
+    }
+
+    // Helper function to find the minimum value node in a subtree
+    TreeNode findMin(TreeNode node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
+    }
+
+    // Delete a node with the given value
+    TreeNode deleteNode(TreeNode root, int value) {
+        if (root == null) {
+            return root;
+        }
+
+        // Traverse the tree to find the node to delete
+        if (value < root.value) {
+            root.left = deleteNode(root.left, value);
+        } else if (value > root.value) {
+            root.right = deleteNode(root.right, value);
+        } else {
+            // Node with only one child or no child
+            if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            }
+
+            // Node with two children: Get the inorder successor (smallest in the right subtree)
+            TreeNode temp = findMin(root.right);
+
+            // Copy the inorder successor's content to this node
+            root.value = temp.value;
+
+            // Delete the inorder successor
+            root.right = deleteNode(root.right, temp.value);
+        }
+        return root;
+    }
+
+    // Insert a node with the given value
+    void insert(int value) {
+        root = insertRec(root, value);
+    }
+
+    // Helper function to insert a node recursively
+    TreeNode insertRec(TreeNode root, int value) {
+        if (root == null) {
+            root = new TreeNode(value);
+            return root;
+        }
+        if (value < root.value) {
+            root.left = insertRec(root.left, value);
+        } else if (value > root.value) {
+            root.right = insertRec(root.right, value);
+        }
+        return root;
+    }
+
+    // Inorder traversal of the tree
+    void inorder() {
+        inorderRec(root);
+    }
+
+    // Helper function for inorder traversal
+    void inorderRec(TreeNode root) {
+        if (root != null) {
+            inorderRec(root.left);
+            System.out.print(root.value + " ");
+            inorderRec(root.right);
+        }
+    }
+
+    public static void main(String[] args) {
+        BinarySearchTree tree = new BinarySearchTree();
+
+        tree.insert(50);
+        tree.insert(30);
+        tree.insert(20);
+        tree.insert(40);
+        tree.insert(70);
+        tree.insert(60);
+        tree.insert(80);
+
+        System.out.println("Inorder traversal of the given tree");
+        tree.inorder();
+
+        System.out.println("\nDelete 20");
+        tree.deleteNode(tree.root, 20);
+        System.out.println("Inorder traversal of the modified tree");
+        tree.inorder();
+
+        System.out.println("\nDelete 30");
+        tree.deleteNode(tree.root, 30);
+        System.out.println("Inorder traversal of the modified tree");
+        tree.inorder();
+
+        System.out.println("\nDelete 50");
+        tree.deleteNode(tree.root, 50);
+        System.out.println("Inorder traversal of the modified tree");
+        tree.inorder();
+    }
+}

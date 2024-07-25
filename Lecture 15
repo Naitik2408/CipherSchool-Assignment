@@ -1,0 +1,107 @@
+
+array practice code ->
+
+public class Main{
+    public static void main(String[] args) {
+
+        int arr []= new int[5];
+        System.out.println(arr[0]);
+        System.out.println(arr[1]);
+        System.out.println(arr[2]);
+        System.out.println(arr[3]);
+        System.out.println(arr[4]);
+
+for(int i =0;i<arr.length;i++){
+    System.out.print(arr[i] + " ");
+}
+
+        System.out.println();
+for (int i=0;i<arr.length;i++){
+    arr[i]= i+1;
+    System.out.print(arr[i] + " ");
+}
+    }
+}
+output->
+0
+0
+0
+0
+0
+0 0 0 0 0 
+1 2 3 4 5 
+
+
+copy the array 
+practice code
+
+
+public class Main {
+    public static void main(String[] args) {
+        int arr1[] = new int[5];
+        int copyArray[] = new int[arr1.length * 2];
+        // arr intialiszer
+        for (int i=0;i<arr1.length;i++){
+            arr1[i]= i+1;
+            System.out.print(arr1[i] + " ");
+        }
+
+        System.out.println(' ');
+
+        for (int i = 0; i < arr1.length; i++) {
+            copyArray[i] = arr1[i];
+            System.out.print(copyArray[i] + " ");
+        }
+        System.out.println(' ');
+        }
+
+    }
+
+output->
+1 2 3 4 5  
+1 2 3 4 5  
+
+passingAnArray
+practice code ->
+
+public class Main{
+
+    static  void addOne(int x){
+        x=x+1;
+    }
+    public static void main(String[] args) {
+        int x =10;
+        addOne(x);
+        System.out.println(x);
+
+    }
+}
+output->
+10
+
+
+public class Main{
+
+    static  void addOne(int x){
+        x=x+1;
+    }
+    static void addOne(int arr[]){
+        for(int i=0;i<arr.length;i++){
+            arr[i]++;
+        }
+    }
+    public static void main(String[] args) {
+        int x =10;
+        addOne(x);
+        System.out.println(x);
+int arr[]={1,2,3,4,5};
+addOne(arr);
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i] +" ");
+        }
+    }
+}
+output->
+
+10
+2 3 4 5 6 

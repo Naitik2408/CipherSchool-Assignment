@@ -1,0 +1,119 @@
+plaindrome 
+Brute force method->
+
+code->
+public class PalindromeCheck {
+    public static void main(String[] args) {
+        String str1 = "madam";
+        String str2 = "racecar";
+        System.out.println("Is \"" + str1 + "\" a palindrome? " + isPalindromeUsingLoop(str1));
+        System.out.println("Is \"" + str2 + "\" a palindrome? " + isPalindromeUsingLoop(str2));
+    }
+
+    public static boolean isPalindromeUsingLoop(String str) {
+        int n = str.length();
+        for (int i = 0; i < n / 2; i++) {
+            if (str.charAt(i) != str.charAt(n - 1 - i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+output->
+Is "madam" a palindrome? true
+Is "racecar" a palindrome? true
+
+optimal ->
+two pointer->
+code->
+
+public class PalindromeCheck {
+    public static void main(String[] args) {
+        String str1 = "madam";
+        String str2 = "racecar";
+        System.out.println("Is \"" + str1 + "\" a palindrome? " + isPalindromeUsingTwoPointers(str1));
+        System.out.println("Is \"" + str2 + "\" a palindrome? " + isPalindromeUsingTwoPointers(str2));
+    }
+
+    public static boolean isPalindromeUsingTwoPointers(String str) {
+        int left = 0, right = str.length() - 1;
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+}
+output->
+
+Is "madam" a palindrome? true
+Is "racecar" a palindrome? true
+
+
+Anagrams->
+brute force ->
+code->
+
+import java.util.Arrays;
+
+public class AnagramCheck {
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+        System.out.println("Are \"" + str1 + "\" and \"" + str2 + "\" anagrams? " + areAnagramsUsingSorting(str1, str2));
+    }
+
+    public static boolean areAnagramsUsingSorting(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        char[] charArray1 = str1.toCharArray();
+        char[] charArray2 = str2.toCharArray();
+
+        Arrays.sort(charArray1);
+        Arrays.sort(charArray2);
+
+        return Arrays.equals(charArray1, charArray2);
+    }
+}
+output->'
+Are "listen" and "silent" anagrams? true
+
+optimal method->
+code->
+
+public class AnagramCheck {
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+        System.out.println("Are \"" + str1 + "\" and \"" + str2 + "\" anagrams? " + areAnagramsUsingCountArray(str1, str2));
+    }
+
+    public static boolean areAnagramsUsingCountArray(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        int[] count = new int[256]; // Assuming ASCII character set
+
+        for (int i = 0; i < str1.length(); i++) {
+            count[str1.charAt(i)]++;
+            count[str2.charAt(i)]--;
+        }
+
+        for (int i : count) {
+            if (i != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+output->
+Are "listen" and "silent" anagrams? true

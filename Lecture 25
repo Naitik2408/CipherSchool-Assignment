@@ -1,0 +1,91 @@
+
+Recursion->
+code->
+
+public class PrintNumbersRecursively {
+    public static void main(String[] args) {
+        printNumbers(5);
+    }
+    
+    public static void printNumbers(int n) {
+        // Base case: Stop recursion when n is less than 1
+        if (n < 1) {
+            return;
+        }
+        
+        // Print the current number
+        System.out.println(n);
+        
+        // Recursively call printNumbers with n-1
+        printNumbers(n - 1);
+    }
+}
+output->
+5
+4
+3
+2
+1
+Fibbonachi series
+
+public class FibonacciRecursive {
+    public static void main(String[] args) {
+        int n = 10; // Number of Fibonacci numbers to print
+        System.out.println("Fibonacci Sequence up to " + n + " numbers:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+    }
+    
+    public static int fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    }
+}
+output->
+Fibonacci Sequence up to 10 numbers:
+0 1 1 2 3 5 8 13 21 34 
+
+binary search->
+code->
+
+public class BinarySearchWithoutRecursion {
+    public static void main(String[] args) {
+        int[] array = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+        int target = 12;
+        
+        int index = binarySearch(array, target);
+        
+        if (index != -1) {
+            System.out.println("Element " + target + " found at index " + index);
+        } else {
+            System.out.println("Element " + target + " not found in the array");
+        }
+    }
+    
+    public static int binarySearch(int[] array, int target) {
+        int left = 0;
+        int right = array.length - 1;
+        
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            
+            if (array[mid] == target) {
+                return mid; // Found the target
+            } else if (array[mid] < target) {
+                left = mid + 1; // Discard left half
+            } else {
+                right = mid - 1; 
+            }
+        }
+        
+        return -1; 
+    }
+}
+
+output->
+
+Element 12 found at index 5

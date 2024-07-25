@@ -1,0 +1,30 @@
+Tree and Binary Tree Basics
+A tree is a hierarchical data structure consisting of nodes, with a single node designated as the root.
+Each node contains a value and pointers (or references) to its child nodes. 
+A binary tree is a special type of tree where each node has at most two children, referred to as the left child and the right child.
+
+
+In a binary tree represented as an array (or list), the nodes are typically indexed from 0. For a node at index i:
+
+Left Child: The left child of the node at index i is located at index 2*i + 1.
+Right Child: The right child of the node at index i is located at index 2*i + 2.
+Parent Node: The parent of the node at index i is located at index (i - 1) // 2.
+
+
+Types of binary tree
+
+Full Binary Tree:
+
+A binary tree in which every node other than the leaves has exactly two children.
+
+Complete Binary Tree:
+
+A binary tree in which all levels are completely filled except possibly for the last level, which is filled from left to right.
+
+Perfect Binary Tree:
+
+A binary tree in which all internal nodes have exactly two children and all leaves are at the same level.
+
+Balanced Binary Tree:
+
+A binary tree in which the height of the two subtrees of any node differ by at most one.

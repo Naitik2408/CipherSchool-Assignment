@@ -1,0 +1,105 @@
+
+Remove Loop in linked list 
+Approach->
+
+Detect the loop using Floyd's Cycle-Finding Algorithm.
+Find the start of the loop.
+Remove the loop by setting the next pointer of the loop's last node to null.
+
+code->
+
+class LinkedList {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int d) {
+            data = d;
+            next = null;
+        }
+    }
+
+    Node head;
+
+    // Function to detect a loop and return the meeting point of slow and fast
+    public Node detectLoop() {
+        Node slow = head;
+        Node fast = head;
+
+        while (slow != null && fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                return slow; // Loop detected
+            }
+        }
+        return null; // No loop
+    }
+
+    // Function to remove the loop
+    public void removeLoop() {
+        Node loopNode = detectLoop();
+        if (loopNode == null) return; // No loop
+
+        Node ptr1 = head;
+        Node ptr2 = loopNode;
+
+        // Find the start of the loop
+        while (ptr1 != ptr2) {
+            ptr1 = ptr1.next;
+            ptr2 = ptr2.next;
+        }
+
+        // Find the previous node of the start node of the loop
+        Node prev = ptr2;
+        while (prev.next != ptr2) {
+            prev = prev.next;
+        }
+
+        // Break the loop
+        prev.next = null;
+    }
+
+    // Function to insert a new node at the end
+    public void append(int new_data) {
+        Node new_node = new Node(new_data);
+
+        if (head == null) {
+            head = new_node;
+            return;
+        }
+
+        Node last = head;
+        while (last.next != null) {
+            last = last.next;
+        }
+
+        last.next = new_node;
+    }
+
+    // Function to print the linked list
+    public void printList() {
+        Node n = head;
+        while (n != null) {
+            System.out.print(n.data + " ");
+            n = n.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+
+        list.append(10);
+        list.append(20);
+        list.append(30);
+        list.append(40);
+        list.append(50);
+
+        // Creating a loop for testing
+        list.head.next.next.next.next.next = list.head.next.next;
+
+        list.removeLoop();
+        list.printList(); // This should print the list without the loop
+    }
+}

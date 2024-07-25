@@ -1,0 +1,135 @@
+
+A heap is a specialized binary tree-based data structure that satisfies the heap property. In a min-heap, for any given node i, 
+the value of i is less than or equal to the values of its children. In a max-heap, the value of i is greater than or equal to the values of its children.
+Heaps are commonly used to implement priority queues.
+
+Types of Heaps
+Min-Heap: Each parent node is smaller than its children nodes.
+Max-Heap: Each parent node is larger than its children nodes.
+practice code->
+public class HeapFunctions {
+    final int capacity = 10;
+    int[] heap = new int[capacity];
+    int size = 0;
+
+    // Function to get the index of the parent of a node
+    private int getParentIndex(int index) {
+        return (index - 1) / 2;
+    }
+
+    // Function to get the index of the left child of a node
+    private int getLeftChildIndex(int index) {
+        return 2 * index + 1;
+    }
+
+    // Function to get the index of the right child of a node
+    private int getRightChildIndex(int index) {
+        return 2 * index + 2;
+    }
+
+    // Function to check if a node has children
+    private boolean hasChildren(int index) {
+        return getLeftChildIndex(index) < size;
+    }
+
+    // Function to get the value at a specific index in the heap
+    private int getValueAtIndex(int index) {
+        if (index >= 0 && index < size) {
+            return heap[index];
+        } else {
+            throw new IndexOutOfBoundsException("Index out of bounds.");
+        }
+    }
+
+    public static void main(String[] args) {
+        HeapFunctions heapFunctions = new HeapFunctions();
+
+        // Example usage:
+        int index = 3;
+        System.out.println("Parent index of index " + index + ": " + heapFunctions.getParentIndex(index));
+        System.out.println("Left child index of index " + index + ": " + heapFunctions.getLeftChildIndex(index));
+        System.out.println("Right child index of index " + index + ": " + heapFunctions.getRightChildIndex(index));
+        System.out.println("Does index " + index + " have children? " + heapFunctions.hasChildren(index));
+        System.out.println("Value at index " + index + ": " + heapFunctions.getValueAtIndex(index));
+    }
+}
+
+
+
+
+
+
+insertion in heap  
+
+code-
+public class MaxHeap {
+    private int[] heap;
+    private int size;
+    private int capacity;
+
+    public MaxHeap(int capacity) {
+        this.capacity = capacity;
+        this.size = 0;
+        this.heap = new int[capacity];
+    }
+
+    // Function to insert a new element into the heap
+    public void insert(int value) {
+        if (size == capacity) {
+            System.out.println("Heap is full. Cannot insert more elements.");
+            return;
+        }
+
+        // Insert the new element at the end of the heap
+        heap[size] = value;
+        size++;
+
+        // Heapify up to maintain the max-heap property
+        heapifyUp(size - 1);
+    }
+
+    // Helper function to heapify up (upward heapification)
+    private void heapifyUp(int index) {
+        int parentIndex = getParentIndex(index);
+
+        while (index > 0 && heap[index] > heap[parentIndex]) {
+            // Swap current index with parent index
+            swap(index, parentIndex);
+            index = parentIndex;
+            parentIndex = getParentIndex(index);
+        }
+    }
+
+    // Function to get the index of the parent of a node
+    private int getParentIndex(int index) {
+        return (index - 1) / 2;
+    }
+
+    // Function to swap two elements in the heap
+    private void swap(int index1, int index2) {
+        int temp = heap[index1];
+        heap[index1] = heap[index2];
+        heap[index2] = temp;
+    }
+
+    // Function to print the elements of the heap
+    public void printHeap() {
+        System.out.print("Heap: ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(heap[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        MaxHeap maxHeap = new MaxHeap(10);
+
+        maxHeap.insert(3);
+        maxHeap.insert(7);
+        maxHeap.insert(1);
+        maxHeap.insert(9);
+        maxHeap.insert(5);
+
+        maxHeap.printHeap();
+    }
+}

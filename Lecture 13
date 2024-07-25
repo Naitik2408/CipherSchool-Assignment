@@ -1,0 +1,106 @@
+
+Access Modifier->
+
+private: Accessible only within the same class.
+default: Accessible within the same package.
+protected: Accessible within the same package and by subclasses.
+public: Accessible from any other class.
+
+private->
+public class PrivateExample {
+    private int privateVar = 10;
+
+    private void privateMethod() {
+        System.out.println("Private Method");
+    }
+
+    public void showPrivate() {
+        System.out.println("Private Variable: " + privateVar);
+        privateMethod();
+    }
+
+    public static void main(String[] args) {
+        PrivateExample example = new PrivateExample();
+        example.showPrivate();
+    }
+}
+output->
+Private Variable: 10
+Private Method
+
+
+Default ->
+
+class DefaultExample {
+    int defaultVar = 20;
+
+    void defaultMethod() {
+        System.out.println("Default Method");
+    }
+
+    public static void main(String[] args) {
+        DefaultExample example = new DefaultExample();
+        System.out.println("Default Variable: " + example.defaultVar);
+        example.defaultMethod();
+    }
+}
+output->
+Default Variable: 20
+Default Method
+
+public ->
+
+public class PublicExample {
+    public int publicVar = 40;
+
+    public void publicMethod() {
+        System.out.println("Public Method");
+    }
+
+    public static void main(String[] args) {
+        PublicExample example = new PublicExample();
+        System.out.println("Public Variable: " + example.publicVar);
+        example.publicMethod();
+    }
+}
+output->
+Public Variable: 40
+Public Method
+
+Enscapsulation->
+
+class encapsulation {
+    private int a =5;
+    private int b  =10;
+
+    public int getA(){
+        System.out.println("value of  A read");
+        return this.a;
+    }
+    public int getB(){
+        System.out.println("value of  B read");
+        return this.b;
+    }
+    public void setA(int a){   // setter
+        this.a=a;
+    }
+}
+
+public class Main{
+    public static void main(String[] args) {
+        encapsulation obj= new encapsulation();
+//        System.out.println(obj.a) not able to acces
+System.out.println(obj.getA()); // by creating getter and setter we can acces the private member
+        System.out.println(obj.getB());
+        obj.setA(100);
+        System.out.println(obj.getA());
+}
+}
+
+output->
+value of  A read
+5
+value of  B read
+10
+value of  A read
+100

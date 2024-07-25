@@ -1,0 +1,96 @@
+
+multidimensonal array 
+practice code->
+public class MultiDimensionalArray {
+
+    public static void main(String[] args) {
+        // Create a 2D array with 5 rows and 3 columns
+        int[][] array = new int[5][3];
+
+        // Print the array
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+output->
+0 0 0 
+0 0 0 
+0 0 0 
+0 0 0 
+0 0 0 
+by intilazier the array
+
+public class MultiDimensionalArray {
+
+    public static void main(String[] args) {
+        // Initialize the array with specific values
+        int[][] array = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9},
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+
+        // Print the array
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+output->
+1 2 3 
+4 5 6 
+7 8 9 
+1 2 3 
+4 5 6 
+
+home-work
+jagged array->
+
+practice code ->
+
+public class JaggedArrayExample {
+
+    public static void main(String[] args) {
+        // Create a jagged array with 3 rows
+        int[][] jaggedArray = new int[3][];
+
+        // Initialize each row with different column lengths
+        jaggedArray[0] = new int[3];  // Row 0 with 3 columns
+        jaggedArray[1] = new int[2];  // Row 1 with 2 columns
+        jaggedArray[2] = new int[4];  // Row 2 with 4 columns
+
+        // Assign some values to the elements
+        jaggedArray[0][0] = 1;
+        jaggedArray[0][1] = 2;
+        jaggedArray[0][2] = 3;
+
+        jaggedArray[1][0] = 4;
+        jaggedArray[1][1] = 5;
+
+        jaggedArray[2][0] = 6;
+        jaggedArray[2][1] = 7;
+        jaggedArray[2][2] = 8;
+        jaggedArray[2][3] = 9;
+
+        // Print the jagged array
+        for (int i = 0; i < jaggedArray.length; i++) {
+            for (int j = 0; j < jaggedArray[i].length; j++) {
+                System.out.print(jaggedArray[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+output->
+1 2 3 
+4 5 
+6 7 8 9 
